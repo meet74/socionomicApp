@@ -3,6 +3,7 @@ import 'package:socionomic/constants/Colors.dart';
 import 'package:socionomic/data/dummy_data.dart';
 
 class HomePage extends StatelessWidget {
+  static const routeName = '/home';
   @override
   Widget build(BuildContext context) {
     final stories = StroyData;
