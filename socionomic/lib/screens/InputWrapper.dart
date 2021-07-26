@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'Button.dart';
-import 'InputField.dart';
 
-class InputWrapper extends StatelessWidget {
+class InputWrapper extends StatefulWidget {
+  @override
+  _InputWrapperState createState() => _InputWrapperState();
+}
+
+class _InputWrapperState extends State<InputWrapper> {
+  String name = "";
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +22,54 @@ class InputWrapper extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(10)),
-            child: InputField(),
+            child: Column(
+              children: <Widget>[
+                Container(
+                  child: Text("Welcome $name"),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(color: Colors.grey[200]))),
+                  child: TextField(
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
+                    decoration: InputDecoration(
+                        hintText: "Enter your Username",
+                        hintStyle: TextStyle(color: Colors.grey),
+                        border: InputBorder.none),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(color: Colors.grey[200]))),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: "Enter your email",
+                        hintStyle: TextStyle(color: Colors.grey),
+                        border: InputBorder.none),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                      border:
+                          Border(bottom: BorderSide(color: Colors.grey[200]))),
+                  child: TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                        hintText: "Enter your password",
+                        hintStyle: TextStyle(color: Colors.grey),
+                        border: InputBorder.none),
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 40,
